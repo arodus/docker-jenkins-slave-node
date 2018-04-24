@@ -43,7 +43,7 @@ RUN echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots/5.0.
   && rm -rf /var/lib/apt/lists/* \
   && apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
-RUN apt-get update && apt-get install curl \
+RUN apt-get update && apt-get install -y curl libicu-dev \
  && apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
 COPY setup-sshd /usr/local/bin/setup-sshd
