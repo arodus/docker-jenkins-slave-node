@@ -46,6 +46,10 @@ RUN echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots/5.0.
 RUN apt-get update && apt-get install -y curl libicu-dev \
  && apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo bash - \
+ && apt-get install -y nodejs \
+ && apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
+
 COPY setup-sshd /usr/local/bin/setup-sshd
 RUN chmod +x /usr/local/bin/setup-sshd
 
